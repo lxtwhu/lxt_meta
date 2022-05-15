@@ -1,0 +1,15 @@
+{
+  "jdk": "jdk1.8",
+  "mvn": "mvn3.6",
+  "pom": "pom.xml",
+  "buildExec": "mvn package",
+  "script": "build/target/dist/initiator/build/containerDeploy.sh",
+  "deployList": [
+    "@project.parent.artifactId@",
+    "install"
+  ],
+  "说明1": "该配置用于项目室容器化编译。符合室内规范的项目，可通过命令 mvn initialize -DbuildJson 生成此文件（若已存在, 会覆盖），且无需再改动此文件。",
+  "说明2": "上面的 containerDeploy.sh文件，会在 mvn package中自动生成，并被项目室调用。因此，你无需编写或调用。平时开发测试时，也不会被调用。",
+  "说明3": "平时开发测试时，手工编译，只需执行 mvn package。制品为：build/target/dist/patch/@project.parent.artifactId@.tar.gz ,build/target/dist/patch/install",
+  "说明4": "上述任何使用 mvn package的地方，均是全模块打包。如你只需发布部分模块，如子模块 submodule-a，submodule-b两个项目，只需这样使用参数：mvn package -pl submodule-a,submodule-b,build -am"
+}

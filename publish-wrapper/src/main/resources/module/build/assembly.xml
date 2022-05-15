@@ -1,0 +1,55 @@
+<assembly
+		xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+	<id>bin</id>
+<!--	Only used by ac/ac-plg since skeleton 2.1.6, other modules won't generate subPatch -->
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}/dist/deploy</directory>
+			<includes>
+				<include>**/*.sh</include>
+				<include>**/*.cfg</include>
+				<include>**/*.md</include>
+				<include>**/*.txt</include>
+				<include>**/*.log</include>
+				<include>**/*.csv</include>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>**/*.yaml</include>
+				<include>**/*.py</include>
+				<include>**/*.js</include>
+				<include>**/*.html</include>
+				<include>**/*.css</include>
+				<include>**/res.*</include>
+				<include>**/*.dk</include>
+				<include>**/*.env</include>
+				<include>**/*.plugin</include>
+				<include>**/*.dk</include>
+				<include>**/*.conf</include>
+				<include>**/*.ver</include>
+				<include>**/*.prop</include>
+				<include>**/*.dt</include>
+				<include>**/*.awk</include>
+				<include>**/*.json</include>
+				<include>**/*.profile</include>
+				<include>**/*.bashrc</include>
+				<include>**/*.bash_profile</include>
+			</includes>
+			<directoryMode>0755</directoryMode>
+			<fileMode>0777</fileMode>
+			<outputDirectory>${project.artifactId}</outputDirectory>
+			<lineEnding>lf</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/dist/deploy</directory>
+			<directoryMode>0755</directoryMode>
+			<fileMode>0777</fileMode>
+			<outputDirectory>${project.artifactId}</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
